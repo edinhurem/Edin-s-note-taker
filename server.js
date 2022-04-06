@@ -7,7 +7,6 @@ const path = require('path');
 const db = require('./db/db.json')
 const app = express();
 const fs = require('fs');
-const checkid = req.params.id; 
 
 // Port
 const PORT = process.env.PORT || 3001;
@@ -48,25 +47,6 @@ app.post('/api/notes', (req, res) => {
     res.status(500).json('Error in posting notes');
   }
 });
-
-// Delete Requests 
-
-newNotes = newNotes.filter(({ id }) => id !== checkId);
-id!==checkid
-let readFile = fs.readFile
-newNote = readFile 
-
-const note = req.body;
-readFileSync("./develop/db/db.json", "utf8").then(function (data) {
-  const notes = [].concat(JSON.parse(data));
-  note.id = notes.length + 1
-  notes.push(note);
-  return notes
-}).then(function (notes) {
-  writeFileAsync("./develop/db/db.json", JSON.stringify(notes))
-  res.json(note);
-})
-
 
 
 // HTML ROUTES
