@@ -1,4 +1,4 @@
-const { randomUUID } = require('crypto');
+// Dependenceis 
 const { text } = require('express');
 const express = require('express');
 const res = require('express/lib/response');
@@ -6,9 +6,11 @@ const { readFileSync } = require('fs');
 const path = require('path');
 const db = require('./db/db.json')
 const app = express();
-const PORT = process.env.PORT || 3001;
 const fs = require('fs');
+const checkid = req.params.id; 
 
+// Port
+const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -16,18 +18,14 @@ app.use(express.urlencoded({
   extended: true
 }));
 
+//API Routes
+
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 })
 app.get('/api/notes', (req, res) => {
   res.json(db)
 })
-
-app.delete('api/notes/:id', (req, res) => {
-  res.json(db)
-})
-
-
 
 app.post('/api/notes', (req, res) => {
 
@@ -51,6 +49,13 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+// Delete Requests 
+
+newNotes = newNotes.filter(({ id }) => id !== checkId);
+id!==checkid
+let readFile = fs.readFile
+newNote = readFile 
+
 const note = req.body;
 readFileSync("./develop/db/db.json", "utf8").then(function (data) {
   const notes = [].concat(JSON.parse(data));
@@ -62,11 +67,7 @@ readFileSync("./develop/db/db.json", "utf8").then(function (data) {
   res.json(note);
 })
 
-const response = {
-  status: 'success',
-  body: newReview,
-};
- 
+
 
 // HTML ROUTES
 app.get('*', (req, res,) => {
