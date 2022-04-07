@@ -6,6 +6,7 @@ const path = require('path');
 const db = require('./db/db.json')
 const app = express();
 const PORT = process.env.PORT || 3001;
+var uuid = require('uuid-random');
 
 
 app.use(express.static('public'));
@@ -21,6 +22,11 @@ app.get('/api/notes', (req, res) => {
   res.json(db)
 })
 
+const writeToFile = (destination, content) =>
+  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
+    err ? console.error(err) : console.info(`\nData written to ${destination}`)
+  );
+
 app.post('/api/notes', (req, res) => {
 
   const { title, text } = req.body;
@@ -28,7 +34,7 @@ app.post('/api/notes', (req, res) => {
     const notes = {
       title,
       text,
-      id: randomUUID()
+      id: uuid()
     };
 
     const response = {
