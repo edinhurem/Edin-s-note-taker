@@ -7,7 +7,8 @@ const db = require('./db/db.json')
 const app = express();
 const PORT = process.env.PORT || 3001;
 var uuid = require('uuid-random');
-
+const req = require('express/lib/request');
+const { json } = require('express/lib/response');
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -21,6 +22,8 @@ app.get('/notes', (req, res) => {
 app.get('/api/notes', (req, res) => {
   res.json(db)
 })
+
+//GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
 
 const writeToFile = (destination, content) =>
   fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
@@ -51,6 +54,7 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/:id', (req, res) => res.json('DELETE route'));
 
+//API ROUTE//
 
 app.get('*', (req, res,) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
