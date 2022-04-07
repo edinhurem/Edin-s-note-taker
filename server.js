@@ -1,9 +1,8 @@
 const { text } = require('express');
 const express = require('express');
 const res = require('express/lib/response');
-const { readFileSync } = require('fs');
+const fs = require('fs');
 const path = require('path');
-const db = require('./db/db.json')
 const app = express();
 const PORT = process.env.PORT || 3001;
 var uuid = require('uuid-random');
@@ -20,15 +19,14 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 })
 app.get('/api/notes', (req, res) => {
-  res.json(db)
-})
+  fs.readFile("db/db.json","utf8",(err,data)=>res.json(JSON.parse(data)));
 
-//GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
 
-const writeToFile = (destination, content) =>
-  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
-    err ? console.error(err) : console.info(`\nData written to ${destination}`)
-  );
+  //GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
+
+
+});
+
 
 app.post('/api/notes', (req, res) => {
 
@@ -39,6 +37,19 @@ app.post('/api/notes', (req, res) => {
       text,
       id: uuid()
     };
+    fs.readFile('./db/db.json', "utf8", function (err, data) {
+
+      const text = JSON.parse(data)
+      text.push(notes);
+
+      fs.writeFile(`./db/db.json`,JSON.stringify(text), (err) =>
+        err
+          ? console.error(err)
+          : console.log(
+            'new note has been written to JSON file'
+          )
+      );
+    })
 
     const response = {
       status: 'success',
@@ -46,13 +57,12 @@ app.post('/api/notes', (req, res) => {
     };
 
     console.log(response);
-    res.status(201).json(resposne);
+    res.status(201).json(response);
   } else {
     res.status(500).json('Error in posting notes');
   }
 });
 
-app.delete('/:id', (req, res) => res.json('DELETE route'));
 
 //API ROUTE//
 
