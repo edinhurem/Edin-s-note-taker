@@ -12,7 +12,6 @@ of taks he/she needs to complete.
 [Usage](#usage)
 [Credits](#credits)
 [License](#license)
-[Tests]
 
 ## Visuals 
 ![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./Assets/11-express-homework-demo-01.png)
@@ -20,6 +19,7 @@ of taks he/she needs to complete.
 ![Note titled “Balance accounts” reads, “Balance account books by end of day Monday,” with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
 ## Deployed Link
 [Page on load](http://localhost:3001/)
+
 ## Usage
 '''javascript
 
@@ -49,8 +49,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## Tests
 
  
 
