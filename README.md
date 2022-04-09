@@ -1,34 +1,30 @@
 # Edin-s-note-taker
 
 ""Description
-Starter code was provided to create an application called Note Taker that can be used to write and save notes. 
+Starter code was provided to create an application called Note Taker that can be used to write and save notes.
 This application will use an Express.js back end and will save and retrieve note data from a JSON file.
 
-Small business owner can utilzie application to write, save, and deletes notes so he/she can orangize thoughts and keep track 
-of taks he/she needs to complete. 
+Small business owner can utilzie application to write, save, and deletes notes so he/she can orangize thoughts and keep track
+of taks he/she needs to complete.
 
-""Table of Contents 
+""Table of Contents
 [Installation](#installation)
 [Usage](#usage)
 [Credits](#credits)
 [License](#license)
 
-## Visuals 
-![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./Assets/11-express-homework-demo-01.png)
-
-![Note titled “Balance accounts” reads, “Balance account books by end of day Monday,” with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
-## Deployed Link
-[Page on load](http://localhost:3001/)
-
 ## Usage
+
 '''javascript
 
 ## Credits
-Edin Hurem 
 
-## License 
- [https://choosealicense.com/](https://choosealicense.com/)
- MIT License
+Edin Hurem
+
+## License
+
+[https://choosealicense.com/](https://choosealicense.com/)
+MIT License
 
 Copyright (c) [2022] [Edin Hurem]
 
@@ -49,7 +45,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
- 
-
-
